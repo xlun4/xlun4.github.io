@@ -1,0 +1,46 @@
+<script>
+var list=app0.querySelector(".list"),item=app0.querySelector(".item");
+
+item.remove();
+list.appendChild(item.cloneNode(true));
+list.appendChild(item.cloneNode(true));
+</script>
+<style>
+.app-index .s:not(.on){display:none}
+.app-index svg{width:1em;height:1em}
+.app-index svg,
+.app-index button span{vertical-align:middle}
+.app-index button{line-height:1}
+.app-index .list{margin:0;padding:0;list-style:none}
+.app-index .s:not(.on){display:none}
+.app-index .item{}
+.app-index .list.on{display:flex;flex-direction:row}
+.app-index .list.on .item{flex:auto;max-width:33.33%}
+.app-index .list.on .frame{height:320px}
+.app-index .app0-head{display:flex}
+.app-index .app0-title{flex:auto}
+
+</style>
+<div class="s app0-menu on">
+	<button>Manage</button>
+</div>
+<div class="s app0-manage">
+	<button>Install</button>
+	<button>Remove</button>
+</div>
+<ul class="el-list list on"></ul>
+<li class="item"><div class="frame">
+	<div class="app0-head">
+		<div class="app0-title">TITLE TEST</div>
+		<button class="app0-play">
+			<svg aria-hidden="true" role="presentation" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#play"></use></svg>
+			<span>Start</span>
+		</button>
+		<button class="app0-setting"><svg aria-hidden="true" role="presentation" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#settings"></use></svg></button>
+	</div>
+	<div class="s app0-info on">
+		INFO TEST
+	</div>
+	<div class="s app0-setting-list">
+	</div>
+</div></li>
