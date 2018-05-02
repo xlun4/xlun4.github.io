@@ -144,11 +144,11 @@ var command={
 	}
 };
 
-	ws.binaryType="arraybuffer";
-	ws.onopen=app.ws_open;
-	ws.onerror=app.ws_error;
-	ws.onmessage=app.ws_onmessage;
-	ws.onclose=app.ws_close;
+	app.ws.binaryType="arraybuffer";
+	app.ws.onopen=app.ws_open;
+	app.ws.onerror=app.ws_error;
+	app.ws.onmessage=app.ws_onmessage;
+	app.ws.onclose=app.ws_close;
 
 	document.cookie="utc_offset="+(-new Date().getTimezoneOffset());
 
