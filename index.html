@@ -18,13 +18,26 @@
 	<link rel="stylesheet" href="css/theme-index-light.css">
 <script>
 var app={
-	index:0
-,	newID:function(){
+	ws:new WebSocket("ws://localhost:8000/"),
+	ws_onopen:function(e){
+
+	},
+	ws_error:function(e){
+		
+	},
+	ws_onmessage:function(e){
+
+	},
+	ws_onclose:function(e){
+
+	},
+	index:0,
+	newID:function(){
 		var i=this.index+1;
 		this.index=i;
 		return "app-index-"+i;
-	}
-,	newPage:function(name,data){
+	},
+	newPage:function(name,data){
 		var t=this,x=$.rq({
 			onload:function(){
 				var c,s=this.responseText,i=s.indexOf("/script>");
@@ -130,6 +143,12 @@ var command={
 		$dom["app-console-input-text"].focus();
 	}
 };
+
+	ws.binaryType="arraybuffer";
+	ws.onopen=app.ws_open;
+	ws.onerror=app.ws_error;
+	ws.onmessage=app.ws_onmessage;
+	ws.onclose=app.ws_close;
 
 	document.cookie="utc_offset="+(-new Date().getTimezoneOffset());
 
