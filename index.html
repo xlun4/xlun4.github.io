@@ -17,7 +17,14 @@
 	<link rel="stylesheet" href="css/theme-light.css">
 	<link rel="stylesheet" href="css/theme-index-light.css">
 <script>
-function ws_app(){try{return new WebSocket("ws//localhost:8000/");}catch(e){}}
+function ws_app(){
+	var ws;
+	try{
+		ws=new WebSocket("ws//localhost:8000/");
+
+	}catch(e){}
+	return ws;
+}
 var app={
 	ws:ws_app(),
 	ws_onopen:function(e){
@@ -145,11 +152,13 @@ var command={
 	}
 };
 
-	app.ws.binaryType="arraybuffer";
-	app.ws.onopen=app.ws_open;
-	app.ws.onerror=app.ws_error;
-	app.ws.onmessage=app.ws_onmessage;
-	app.ws.onclose=app.ws_close;
+	if(app.ws){
+		app.ws.binaryType="arraybuffer";
+		app.ws.onopen=app.ws_open;
+		app.ws.onerror=app.ws_error;
+		app.ws.onmessage=app.ws_onmessage;
+		app.ws.onclose=app.ws_close;
+	}
 
 	document.cookie="utc_offset="+(-new Date().getTimezoneOffset());
 
