@@ -21,7 +21,6 @@ function ws_app(){
 	var ws;
 	try{
 		ws=new WebSocket("ws//localhost:8000/");
-
 	}catch(e){}
 	return ws;
 }
@@ -52,13 +51,20 @@ var app={
 				if(i<0)return;
 				c=document.createElement("div");
 				c.innerHTML=s.substr(i-1).replace(new RegExp("app-index","g"),c.className=t.newID());
-				c.onload=new Function("app0",s.substr(8,i-9));
-				c.onload(c);
-				document.querySelector(".app-main").appendChild(c);
+				(c.onload=new Function("app0",s.substr(8,i-9)))();
+				t.html(c);
 			}
 		});
 		x.open(data?"POST":"GET",name+"/",true);
 		x.send(data);
+	},
+	html:function(s){
+		var a=document.querySelector(".app-main");
+		a.textContent="";
+		switch(s.constructor){
+			case String:a.innerHTML=s;break;
+			default:a.appendChild(s);
+		}
 	}
 },$dom={},api={};
 function proc_console_input(t,e){
