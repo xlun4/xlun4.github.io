@@ -51,7 +51,7 @@ var app={
 				if(i<0)return;
 				c=document.createElement("div");
 				c.innerHTML=s.substr(i-1).replace(new RegExp("app-index","g"),c.className=t.newID());
-				(c.onload=new Function("app0",s.substr(8,i-9)))();
+				(c.onload=new Function("app0",s.substr(8,i-9)))(c);
 				t.html(c);
 			}
 		});
