@@ -17,8 +17,9 @@
 	<link rel="stylesheet" href="css/theme-light.css">
 	<link rel="stylesheet" href="css/theme-index-light.css">
 <script>
+function ws_app(){try{return new WebSocket("ws//localhost:8000/");}catch(e){}}
 var app={
-	ws:new WebSocket("ws//localhost:8000/"),
+	ws:ws_app(),
 	ws_onopen:function(e){
 
 	},
