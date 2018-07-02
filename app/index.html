@@ -12,7 +12,8 @@ list.appendChild(item.cloneNode(true));
 .app-index button span{vertical-align:middle}
 .app-index button{line-height:1}
 .app-index label input{display:none}
-.app-index label span{}
+.app-index label span{padding:0 .1em}
+.app-index label input:checked + span{color:blue}
 .app-index .list{margin:0;padding:0;list-style:none}
 .app-index .item{}
 .app-index .list.on{display:flex;flex-direction:row}
@@ -29,12 +30,12 @@ list.appendChild(item.cloneNode(true));
 	</div>
 	<div class="s app0-search-option">
 		<label><input type="checkbox" checked><span>Built-in</span></label>
-
+		<br>
 		<label><input type="radio" name="last"><span>all</span></label>
 		<label><input type="radio" name="last" value="h"><span>last 24 hours</span></label>
 		<label><input type="radio" name="last" value="d" checked><span>last 3 days</span></label>
 		<label><input type="radio" name="last" value="m"><span>last month</span></label>
-
+		<br>
 		<label><input type="radio" name="order" value="score"><span>Score</span></label>
 		<label><input type="radio" name="order" value="favorate"><span>Favorate</span></label>
 		<label><input type="radio" name="order" value="update" checked><span>Update</span></label>
