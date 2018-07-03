@@ -17,8 +17,8 @@ list.appendChild(item.cloneNode(true));
 .app-index label input:checked + span{color:blue}
 .app-index .list{margin:0;padding:0;list-style:none}
 .app-index .list.on{display:flex;flex-direction:row}
-.app-index .list.on .item{width:160px}
-.app-index .list.on .frame{height:100px}
+.app-index .list li{width:160px}
+.app-index .list .item-img{height:100px}
 .app-index .app0-head{display:flex}
 .app-index .app0-title{flex:auto}
 
@@ -40,12 +40,12 @@ list.appendChild(item.cloneNode(true));
 		<label><input type="radio" name="order" value="update" checked><span>Update</span></label>
 	</div>
 </form>
-<ul class="el list on">
+<ul class="el list">
 	<li>
-		<div class="app0-img">
+		<div class="item-img">
 
 		</div>
-		<div class="app0-title">TITLE TEST</div>
-		<div class="s app0-info on">&#9734; &#9736; &#9888;</div>
+		<div class="item-title">TITLE TEST</div>
+		<div class="s item-info">&#9734; &#9736; &#9888;</div>
 	</li>
 </ul>
