@@ -142,6 +142,7 @@ input.el-tt-pad{padding-left:4px;padding-right:4px;box-sizing:border-box}
 	.el-dhw0-480{display:none}
 
 	.el-aside .a:not(.on){left:-2em;width:0em}
+	.el-aside .b{left:-10em}
 }
 @media screen and (min-width:481px){
 	.el-scale .el-menu-head,
