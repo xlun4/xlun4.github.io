@@ -23,20 +23,23 @@ list.appendChild(item.cloneNode(true));
 
 </style>
 <form>
-	<div class="s app0-menu on">
-		<input><button>Search</button>
-		<button>Option</button>
-		<label><input type="checkbox" checked><span>Built-in</span></label>
-	</div>
-	<div class="s app0-search-option">
-		<label><input type="radio" name="last"><span>everything</span></label>
-		<label><input type="radio" name="last" value="h"><span>last 24 hours</span></label>
-		<label><input type="radio" name="last" value="d" checked><span>last 3 days</span></label>
-		<label><input type="radio" name="last" value="m"><span>last month</span></label>
-		<br>
-		<label><input type="radio" name="order" value="score"><span>Score</span></label>
-		<label><input type="radio" name="order" value="favorate"><span>Favorate</span></label>
-		<label><input type="radio" name="order" value="update" checked><span>Update</span></label>
+	<div class="el-cascade0">
+		<div class="el-cascade1">
+			<input><button>Search</button>
+			<button>Option</button>
+			<label><input type="checkbox" checked><span>Built-in</span></label>
+		</div>
+		<div class="el-cascade1">
+			<label><input type="radio" name="last"><span>everything</span></label>
+			<label><input type="radio" name="last" value="h"><span>last 24 hours</span></label>
+			<label><input type="radio" name="last" value="d" checked><span>last 3 days</span></label>
+			<label><input type="radio" name="last" value="m"><span>last month</span></label>
+		</div>
+		<div class="el-cascade1">
+			<label><input type="radio" name="order" value="score"><span>Score</span></label>
+			<label><input type="radio" name="order" value="favorate"><span>Favorate</span></label>
+			<label><input type="radio" name="order" value="update" checked><span>Update</span></label>
+		</div>
 	</div>
 </form>
 <ul class="el list">

@@ -72,10 +72,17 @@
 
 .el-body{display:flex;margin:0 auto}
 
+.el-fmenu,
+.el-fmenu{float:left;flex-direction:column;width:100%;max-width:480px}
+.el-fmenu.r{float:right}
+
+.el-cascade0{display:flex;flex-wrap:wrap;max-width:960px}
+.el-cascade1{flex:auto;min-width:320px}
+
+
 .el-list{margin:0;padding:0;list-style:none}
 .el-list.on .item{flex:auto;max-width:33.33%;height:320px}
 .el-list.on .frame{margin:2px;border:1px solid}
-
 
 .el-flex,
 .el-flex-h,
