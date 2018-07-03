@@ -77,10 +77,6 @@
 .el-list.on .frame{margin:2px;border:1px solid}
 
 
-.el-flow,
-.el-flow-item{margin:1px 0}
-
-
 .el-flex,
 .el-flex-h,
 .el-flex-v,
@@ -113,10 +109,14 @@
 .el-center-h{text-align:center}
 .el-center-v{display:inline-block;height:100%;width:0;vertical-align:middle}
 
-table.el-tb{table-layout:fixed;border-collapse:collapse}
-div.el-tb{overflow:auto}
-div.el-tb table{table-layout:fixed;min-width:100%;border-collapse:collapse}
-.el-li{margin:0;padding:0;list-style:none}
+
+
+ul.el{margin:0;padding:0;list-style:none}
+ul.el .item{display:inline-block}
+
+table.el{table-layout:fixed;border-collapse:collapse}
+div.el{overflow:auto}
+div.el > table{table-layout:fixed;min-width:100%;border-collapse:collapse}
 
 .el-btn{padding:0;border:0;vertical-align:middle}
 .el-btn.x2{min-width:2em;min-height:2em}

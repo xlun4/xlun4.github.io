@@ -1,7 +1,8 @@
 <script>
-var list=app0.querySelector(".list"),item=app0.querySelector(".item");
+var list=app0.querySelector(".list"),item=list.firstChildElement;
 
 item.remove();
+
 list.appendChild(item.cloneNode(true));
 list.appendChild(item.cloneNode(true));
 </script>
@@ -12,13 +13,12 @@ list.appendChild(item.cloneNode(true));
 .app-index button span{vertical-align:middle}
 .app-index button{line-height:1}
 .app-index label input{display:none}
-.app-index label span{padding:0 .1em}
+.app-index label span{display:inline-block;padding:0 .4em}
 .app-index label input:checked + span{color:blue}
 .app-index .list{margin:0;padding:0;list-style:none}
-.app-index .item{}
 .app-index .list.on{display:flex;flex-direction:row}
-.app-index .list.on .item{flex:auto;max-width:33.33%}
-.app-index .list.on .frame{height:320px}
+.app-index .list.on .item{width:160px}
+.app-index .list.on .frame{height:100px}
 .app-index .app0-head{display:flex}
 .app-index .app0-title{flex:auto}
 
@@ -27,11 +27,10 @@ list.appendChild(item.cloneNode(true));
 	<div class="s app0-menu on">
 		<input><button>Search</button>
 		<button>Option</button>
+		<label><input type="checkbox" checked><span>Built-in</span></label>
 	</div>
 	<div class="s app0-search-option">
-		<label><input type="checkbox" checked><span>Built-in</span></label>
-		<br>
-		<label><input type="radio" name="last"><span>all</span></label>
+		<label><input type="radio" name="last"><span>everything</span></label>
 		<label><input type="radio" name="last" value="h"><span>last 24 hours</span></label>
 		<label><input type="radio" name="last" value="d" checked><span>last 3 days</span></label>
 		<label><input type="radio" name="last" value="m"><span>last month</span></label>
@@ -41,20 +40,12 @@ list.appendChild(item.cloneNode(true));
 		<label><input type="radio" name="order" value="update" checked><span>Update</span></label>
 	</div>
 </form>
-<ul class="el-list list on">
-<li class="item"><div class="frame">
-	<div class="app0-head">
+<ul class="el list on">
+	<li>
+		<div class="app0-img">
+
+		</div>
 		<div class="app0-title">TITLE TEST</div>
-		<button class="app0-play">
-			<svg aria-hidden="true" role="presentation" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#play"></use></svg>
-			<span>Start</span>
-		</button>
-		<button class="app0-setting"><svg aria-hidden="true" role="presentation" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#settings"></use></svg></button>
-	</div>
-	<div class="s app0-info on">
-		INFO TEST
-	</div>
-	<div class="s app0-setting-list">
-	</div>
-</div></li>
+		<div class="s app0-info on">FAV SCORE WATCH</div>
+	</li>
 </ul>
