@@ -20,8 +20,12 @@ list.appendChild(item.cloneNode(true));
 .app-index label span{display:block;padding:0 .4em}
 .app-index label input:checked + span{background:#8b9ee7;color:blue}
 .app-index .list{display:flex;flex-direction:row;margin:0;padding:0;list-style:none}
-.app-index .list li{width:160px}
+.app-index .list li{width:10em}
 .app-index .list .item-img{height:100px}
+
+@media screen and (min-width:481px){
+	.app-index .list{font-size:2em}
+}
 </style>
 <form>
 	<div class="menu-search el-cascade0">
