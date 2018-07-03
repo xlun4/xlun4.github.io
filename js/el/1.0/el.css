@@ -79,7 +79,7 @@
 .el-cascade0{display:flex;flex-wrap:wrap;max-width:960px}
 .el-cascade1{min-width:320px}
 
-.el-frame{border:1px}
+.el-frame{border:.05em solid}
 .el-frame .head{text-align:center}
 
 .el-list{margin:0;padding:0;list-style:none}
