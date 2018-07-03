@@ -11,6 +11,7 @@ list.appendChild(item.cloneNode(true));
 .app-index svg{width:1em;height:1em}
 .app-index svg,
 .app-index .menu-search{font-size:10pt}
+.app-index .menu-item{display:flex}
 .app-index button span{vertical-align:middle}
 .app-index button{line-height:1}
 .app-index label input{display:none}
@@ -25,18 +26,18 @@ list.appendChild(item.cloneNode(true));
 </style>
 <form>
 	<div class="menu-search el-cascade0">
-		<div class="el-cascade1">
+		<div class="menu-item el-cascade1">
 			<input><button>Search</button>
 			<button>Option</button>
 			<label><input type="checkbox" checked><span>Built-in</span></label>
 		</div>
-		<div class="el-cascade1">
+		<div class="menu-item el-cascade1">
 			<label><input type="radio" name="last"><span>everything</span></label>
 			<label><input type="radio" name="last" value="h"><span>last 24 hours</span></label>
 			<label><input type="radio" name="last" value="d" checked><span>last 3 days</span></label>
 			<label><input type="radio" name="last" value="m"><span>last month</span></label>
 		</div>
-		<div class="el-cascade1">
+		<div class="menu-item el-cascade1">
 			<label><input type="radio" name="order" value="score"><span>Score</span></label>
 			<label><input type="radio" name="order" value="favorate"><span>Favorate</span></label>
 			<label><input type="radio" name="order" value="update" checked><span>Update</span></label>
