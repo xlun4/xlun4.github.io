@@ -17,6 +17,9 @@
 
 .el-g-btn{background-color:#fff}
 
+.el-frame{border-color:#fff}
+.el-frame .head{background-color:#fff}
+
 .el-list.on .frame{border-color:#e1e1e1}
 
 .el-text-outline1{text-shadow:0px 0px 1px #000,-1px -1px 1px #000,1px -1px 1px #000,-1px 1px 1px #000,1px 1px 1px #000}

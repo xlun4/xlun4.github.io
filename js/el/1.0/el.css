@@ -79,6 +79,8 @@
 .el-cascade0{display:flex;flex-wrap:wrap;max-width:960px}
 .el-cascade1{min-width:320px}
 
+.el-frame{border:1px}
+.el-frame .head{text-align:center}
 
 .el-list{margin:0;padding:0;list-style:none}
 .el-list.on .item{flex:auto;max-width:33.33%;height:320px}
