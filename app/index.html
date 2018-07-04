@@ -1,10 +1,22 @@
 <script>
-var list=app0.querySelector(".list"),item=list.firstElementChild;
+var list=app0.querySelector(".list"),item=list.firstElementChild
+,	biult_in=[
+	{name:"Settings",description:"",url_main:"",url_image:""}
+,	{name:"Input Boost",description:"",url_main:"",url_image:""}
+,	{name:"Input Twin",description:"",url_main:"",url_image:""}
+];
 
 item.remove();
 
-list.appendChild(item.cloneNode(true));
-list.appendChild(item.cloneNode(true));
+for(var a,b,j,li=biult_in,i=li.length-1;i>=0;i--){
+	j=li[i];
+	a=item.cloneNode(true);
+	b=a.querySelectorAll(".item-info,.item-title,.item-img,.item-desc");
+	b[1].textContent=j.name;
+	b[2].style.backgroundImage="url("+j.url_image+")";
+	b[3].textContent=j.description;
+	list.insertBefore(a,list.firstElementChild);
+}
 </script>
 <style>
 /*.app-index .s:not(.on){display:none}*/
@@ -63,8 +75,6 @@ list.appendChild(item.cloneNode(true));
 			<button class="p-issue"><div><svg><use xlink:href="#exclamation"></use></svg>1</div></button>
 		</div>
 		<div class="item-title">TITLE TEST</div>
-		<div class="item-img">
-
-		</div>
+		<div class="item-img"><div class="item-desc"></div></div>
 	</div></li>
 </ul>
