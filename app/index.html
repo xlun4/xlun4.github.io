@@ -23,6 +23,9 @@ list.appendChild(item.cloneNode(true));
 .app-index .list li{width:10em}
 .app-index .list .item-img{height:6.2em}
 .app-index .in-frame{margin:.1em}
+.app-index .p-favorate{}
+.app-index .p-score{}
+.app-index .p-issue{}
 
 @media screen and (min-width:481px){
 	.app-index .list{font-size:2em}
@@ -50,9 +53,9 @@ list.appendChild(item.cloneNode(true));
 <ul class="el list">
 	<li><div class="in-frame el-frame">
 		<div class="s item-info head">
-			<svg><use xlink:href="#star"></use></svg><button>3</button>
-			<svg><use xlink:href="#chart-line"></use></svg><button>2</button>
-			<svg><use xlink:href="#exclamation"></use></svg><button>1</button>
+			<button class="p-favorate"><svg><use xlink:href="#star"></use></svg>3</button>
+			<button class="p-score"><svg><use xlink:href="#chart-line"></use></svg>2</button>
+			<button class="p-issue"><svg><use xlink:href="#exclamation"></use></svg>1</button>
 		</div>
 		<div class="item-title">TITLE TEST</div>
 		<div class="item-img">
