@@ -14,7 +14,8 @@ list.appendChild(item.cloneNode(true));
 .app-index .menu-item0{display:flex}
 .app-index .menu-item1{margin:0 1px;display:flex;flex:1;font-size:12px;line-height:2em}
 .app-index button{display:flex;line-height:1;box-sizing:border-box}
-.app-index button svg{width:.8em;height:.8em}
+.app-index button div{font-size:.8em}
+.app-index button svg{width:1em;height:1em}
 .app-index label input{display:none}
 .app-index label span{display:block;padding:0 .4em}
 .app-index label input:checked + span{background:#8b9ee7;color:blue}
@@ -53,9 +54,9 @@ list.appendChild(item.cloneNode(true));
 <ul class="el list">
 	<li><div class="in-frame el-frame">
 		<div class="s item-info head">
-			<button class="p-favorate"><svg><use xlink:href="#star"></use></svg>3</button>
-			<button class="p-score"><svg><use xlink:href="#chart-line"></use></svg>2</button>
-			<button class="p-issue"><svg><use xlink:href="#exclamation"></use></svg>1</button>
+			<button class="p-favorate"><div><svg><use xlink:href="#star"></use></svg>3</div></button>
+			<button class="p-score"><div><svg><use xlink:href="#chart-line"></use></svg>2</div></button>
+			<button class="p-issue"><div><svg><use xlink:href="#exclamation"></use></svg>1</div></button>
 		</div>
 		<div class="item-title">TITLE TEST</div>
 		<div class="item-img">
