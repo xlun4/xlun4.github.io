@@ -1,5 +1,6 @@
 <script>
 var list=app0.querySelector(".list"),item=list.firstElementChild
+,	item2=list.querySelector(".item-info")
 ,	built_in=[
 	{name:"Settings",description:"",url_main:"",url_image:""}
 ,	{name:"Input Boost",description:"",url_main:"",url_image:""}
@@ -7,11 +8,13 @@ var list=app0.querySelector(".list"),item=list.firstElementChild
 ];
 
 item.remove();
+item2.remove();
 
 for(var a,b,j,li=built_in,i=li.length-1;i>=0;i--){
 	j=li[i];
 	a=item.cloneNode(true);
 	b=a.querySelectorAll(".item-info,.item-title,.item-img,.item-desc");
+	b[0].innerHTML=item2.innerHTML;
 	b[1].textContent=j.name;
 	b[2].style.backgroundImage="url("+j.url_image+")";
 	b[3].textContent=j.description;
@@ -69,6 +72,9 @@ for(var a,b,j,li=built_in,i=li.length-1;i>=0;i--){
 </form>
 <ul class="el list">
 	<li><div class="in-frame el-frame">
+		<div class="s item-info head">
+			<svg><use xlink:href="#device"></use></svg>
+		</div>
 		<div class="s item-info head">
 			<button class="p-favorate"><div><svg><use xlink:href="#star"></use></svg>3</div></button>
 			<button class="p-score"><div><svg><use xlink:href="#chart-line"></use></svg>2</div></button>
