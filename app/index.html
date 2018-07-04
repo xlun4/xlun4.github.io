@@ -8,14 +8,12 @@ list.appendChild(item.cloneNode(true));
 </script>
 <style>
 /*.app-index .s:not(.on){display:none}*/
-.app-index svg{width:1em;height:1em}
 .app-index svg,
 .app-index .f{flex:auto}
 .app-index .menu-search label{flex:1;max-width:80px;text-align:center}
 .app-index .menu-item0{display:flex}
 .app-index .menu-item1{margin:0 1px;display:flex;flex:1;font-size:12px;line-height:2em}
-.app-index button{border-width:0 1px;line-height:1}
-.app-index button span{vertical-align:middle}
+.app-index button{display:flex;line-height:1;box-sizing:border-box}
 .app-index label input{display:none}
 .app-index label span{display:block;padding:0 .4em}
 .app-index label input:checked + span{background:#8b9ee7;color:blue}
