@@ -1,6 +1,6 @@
 <script>
 var list=app0.querySelector(".list"),item=list.firstElementChild
-,	biult_in=[
+,	built_in=[
 	{name:"Settings",description:"",url_main:"",url_image:""}
 ,	{name:"Input Boost",description:"",url_main:"",url_image:""}
 ,	{name:"Input Twin",description:"",url_main:"",url_image:""}
@@ -8,7 +8,7 @@ var list=app0.querySelector(".list"),item=list.firstElementChild
 
 item.remove();
 
-for(var a,b,j,li=biult_in,i=li.length-1;i>=0;i--){
+for(var a,b,j,li=built_in,i=li.length-1;i>=0;i--){
 	j=li[i];
 	a=item.cloneNode(true);
 	b=a.querySelectorAll(".item-info,.item-title,.item-img,.item-desc");
