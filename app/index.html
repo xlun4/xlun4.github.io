@@ -1,27 +1,46 @@
 <script>
 var list=app0.querySelector(".list"),item=list.firstElementChild
 ,	item2=list.querySelector(".item-info")
-,	built_in=[
-	{name:"Settings",description:"",url_main:"",url_image:""}
-,	{name:"Input Boost",description:"",url_main:"",url_image:""}
-,	{name:"Input Twin",description:"",url_main:"",url_image:""}
-];
+,	q_item_node=".item-info,.item-title,.item-img,.item-desc"
+,	app_built_in=[
+	{name:"Settings",description:"",url_main:"app/setting.html",url_image:"app/setting.png"}
+,	{name:"Input Boost",description:"",url_main:"app/input-boost.html",url_image:"app/input-boost.png"}
+,	{name:"Input Twin",description:"",url_main:"app/input-twin.html",url_image:"app/input-twin.png"}
+]
+,	app_exten=[];
 
 item.remove();
 item2.remove();
 
-for(var a,b,j,li=built_in,i=li.length-1;i>=0;i--){
-	j=li[i];
-	a=item.cloneNode(true);
-	b=a.querySelectorAll(".item-info,.item-title,.item-img,.item-desc");
-	b[0].parentNode.insertBefore(item2.cloneNode(true),b[0]);
-	b[0].remove();
+for(var li=app_built_in,i=li.length-1;i>=0;i--)new_app(0,li[i],1);
+
+for(var n in localStorage)
+if(/^app-/.exec(n)){
+	var app=JSON.parse(localStorage[n]);
+	app_exten.push(app);
+	new_app(0,app);
+}
+
+new_app(0,{name:"TEST",url_image:"https://upload.wikimedia.org/wikipedia/commons/e/ed/Raccoon_%28Procyon_lotor%29_2.jpg",description:""});
+
+function new_app(type,j,rv){
+	var a=item.cloneNode(true),b=a.querySelectorAll(".item-info,.item-title,.item-img,.item-desc");
+	if(!type){
+		b[0].parentNode.insertBefore(item2.cloneNode(true),b[0]);
+		b[0].remove();
+	}
 	b[1].textContent=j.name;
 	b[2].style.backgroundImage="url("+j.url_image+")";
 	b[3].textContent=j.description;
-	list.insertBefore(a,list.firstElementChild);
+
+	if(rv){
+		list.insertBefore(a,list.firstElementChild);
+	}else{
+		list.appendChild(a);
+	}
+
+	return a;
 }
-list.appendChild(item.cloneNode(true));
 </script>
 <style>
 /*.app-index .s:not(.on){display:none}*/
