@@ -24,7 +24,6 @@ list.appendChild(item.cloneNode(true));
 </script>
 <style>
 /*.app-index .s:not(.on){display:none}*/
-.app-index svg,
 .app-index .f{flex:auto}
 .app-index .menu-search label{flex:1;max-width:80px;text-align:center}
 .app-index .menu-item0{display:flex}
@@ -36,12 +35,13 @@ list.appendChild(item.cloneNode(true));
 .app-index label input:checked + span{background:#8b9ee7;color:blue}
 .app-index .list{display:flex;flex-direction:row;flex-wrap:wrap;margin:0;padding:0;list-style:none}
 .app-index .list li{width:10em}
-.app-index .list .item-info{display:flex;justify-content:center}
-.app-index .list .item-info svg{width:1em;height:1em}
-.app-index .list .item-info button{height:1em;background:transparent}
-.app-index .list .item-info button div{display:flex}
-.app-index .list .item-info .cnt{min-width:1em}
-.app-index .list .item-img{height:6.2em}
+.app-index .item-info{display:flex;justify-content:center}
+.app-index .item-info svg{width:1em;height:1em}
+.app-index .item-info button{height:1em;background:transparent}
+.app-index .item-info button div{display:flex}
+.app-index .item-info .cnt{min-width:1em}
+.app-index .item-info .built{justify-content:initial}
+.app-index .item-img{height:6.2em}
 .app-index .in-frame{margin:.1em}
 .app-index .p-favorate{color:#afaf3f;fill:#afaf3f}
 .app-index .p-favorate.on{color:#fff;fill:#fff;background:#afaf3f}
@@ -75,7 +75,7 @@ list.appendChild(item.cloneNode(true));
 </form>
 <ul class="el list">
 	<li><div class="in-frame el-frame">
-		<div class="s item-info head">
+		<div class="s item-info head built">
 			<svg><use xlink:href="#device"></use></svg>
 		</div>
 		<div class="s item-info head">
