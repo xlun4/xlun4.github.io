@@ -60,6 +60,7 @@ function new_app(type,j,rv){
 .app-index label input:checked + span{background:#8b9ee7;color:blue}
 .app-index .list{display:flex;flex-direction:row;flex-wrap:wrap;margin:0;padding:0;list-style:none}
 .app-index .list li{width:10em}
+.app-index .item-link{width:100%}
 .app-index .item-info{display:flex;justify-content:center}
 .app-index .item-info svg{width:1em;height:1em}
 .app-index .item-info button{height:1em;background:transparent}
@@ -108,7 +109,7 @@ function new_app(type,j,rv){
 			<button class="p-score"><div><svg><use xlink:href="#chart-line"></use></svg><span class="cnt"></span></div></button>
 			<button class="p-issue"><div><svg><use xlink:href="#exclamation"></use></svg><span class="cnt"></span></div></button>
 		</div>
-		<button>
+		<button class="item-link">
 			<div class="item-title"></div>
 			<div class="item-img"><div class="item-desc"></div></div>
 		</button>
