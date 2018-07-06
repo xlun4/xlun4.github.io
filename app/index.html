@@ -12,6 +12,15 @@ var list=app0.querySelector(".list"),item=list.firstElementChild
 item.remove();
 item2.remove();
 
+list.onclick=function(e){
+	var t=e.target;
+	switch(t.constructor){
+	case HTMLButtonElement:
+console.log(e);
+		break;
+	}
+}
+
 for(var li=app_built_in,i=li.length-1;i>=0;i--)new_app(0,li[i],1);
 
 for(var n in localStorage)
