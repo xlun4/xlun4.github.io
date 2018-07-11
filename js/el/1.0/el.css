@@ -76,8 +76,8 @@
 .el-fmenu{float:left;flex-direction:column;width:100%;max-width:480px}
 .el-fmenu.r{float:right}
 
-.el-cascade0{display:flex;flex-wrap:wrap;max-width:960px}
-.el-cascade1{min-width:320px}
+.el-cascade0{position:relative;display:flex;flex-wrap:wrap}
+.el-cascade1{flex:1;min-width:100%}
 
 .el-frame{border:.05em solid}
 .el-frame .head{text-align:center}
@@ -151,6 +151,8 @@ input.el-tt-pad{padding-left:4px;padding-right:4px;box-sizing:border-box}
 	.el-scale .el-menu-body{font-size:1.125rem}
 	.el-vwg1{display:none}
 	.el-dhw480{display:none}
+
+	.el-cascade1{min-width:33.33%}
 }
 @media screen and (max-width:640px){
 }
