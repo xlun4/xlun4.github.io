@@ -18,7 +18,7 @@ list.onclick=function(e){
 
 	switch(t.constructor){
 	case HTMLButtonElement:
-		app_load(app_list[t.value]);
+		app_load(app_list[t.name]);
 		break;
 	}
 }
@@ -57,7 +57,7 @@ function new_app(type,j,rv){
 		b[0].parentNode.insertBefore(item2.cloneNode(true),b[0]);
 		b[0].remove();
 	}
-	b[1].parentNode.value=
+	b[1].parentNode.name=
 	b[1].textContent=j.name;
 	b[2].style.backgroundImage="url('"+j.url_image+"')";
 	b[3].textContent=j.description;
