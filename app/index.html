@@ -2,6 +2,7 @@
 var list=app0.querySelector(".list"),item=list.firstElementChild
 ,	item2=list.querySelector(".item-info")
 ,	q_item_node=".item-info,.item-title,.item-img,.item-desc"
+,	app_list={}
 ,	app_built_in=[
 	{name:"Settings",description:"",url_main:"https://xlun4-app.github.io/app/setting.html",url_image:"",module:null}
 ,	{name:"Input Boost",description:"",url_main:"https://xlun4-app.github.io/app/input-boost.html",url_image:"",module:null}
@@ -14,10 +15,10 @@ item2.remove();
 
 list.onclick=function(e){
 	var t=document.activeElement;
-console.log(t);
+
 	switch(t.constructor){
 	case HTMLButtonElement:
-
+		app_load(app_list[t.value]);
 		break;
 	}
 }
@@ -33,23 +34,34 @@ if(/^app-/.exec(n)){
 
 new_app(1,{name:"TEST",url_image:"https://upload.wikimedia.org/wikipedia/commons/e/ed/Raccoon_%28Procyon_lotor%29_2.jpg",description:"",v_favorate:53,v_score:80,v_issue:3});
 
+function app_load(j){
+	var f=document.createElement("iframe");
+	j.module.frame=f;
+	if(j.url_main.indexOf("https://")<0){
+		f.src=j.url_main;
+	}else{
+		f.src="http://xlun4-app.github.io";
+	}
+	
+}
 function new_app_module(){
 	return {frame:null};
 }
 function new_app(type,j,rv){
-	var a=item.cloneNode(true),b=a.querySelectorAll(".item-info,.item-title,.item-img,.item-desc"),c;
+	var a=item.cloneNode(true),b=a.querySelectorAll("button,.item-info,.item-title,.item-img,.item-desc"),c;
 	if(type){
-		c=b[0].querySelectorAll(".p-favorate .cnt,.p-score .cnt,.p-issue .cnt");
-		c[0].textContent=j.v_favorate;
-		c[1].textContent=j.v_score;
-		c[2].textContent=j.v_issue;
+		b[0].value=j.name;
+		c=b[1].querySelectorAll(".p-favorate .cnt,.p-score .cnt,.p-issue .cnt");
+		c[1].textContent=j.v_favorate;
+		c[2].textContent=j.v_score;
+		c[3].textContent=j.v_issue;
 	}else{
-		b[0].parentNode.insertBefore(item2.cloneNode(true),b[0]);
-		b[0].remove();
+		b[1].parentNode.insertBefore(item2.cloneNode(true),b[0]);
+		b[1].remove();
 	}
-	b[1].textContent=j.name;
-	b[2].style.backgroundImage="url('"+j.url_image+"')";
-	b[3].textContent=j.description;
+	b[2].textContent=j.name;
+	b[3].style.backgroundImage="url('"+j.url_image+"')";
+	b[4].textContent=j.description;
 
 	j.module=new_app_module();
 
@@ -58,6 +70,8 @@ function new_app(type,j,rv){
 	}else{
 		list.appendChild(a);
 	}
+
+	app_list[j.name]=j;
 
 	return a;
 }

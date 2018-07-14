@@ -38,14 +38,28 @@ var app={
 	ws_onclose:function(e){
 
 	},
-	index:0,
-	newID:function(){
+	list:{},list_current:null,
+	index:0,newID:function(){
 		var i=this.index+1;
 		this.index=i;
 		return "app-index-"+i;
 	},
-	newPage:function(name,data){
-		var t=this,x=$.rq({
+	app_click:function(name,data){
+		var t=this,item=t.list[name];
+
+		if(t.list_current==item){
+			t.list_current=null;
+			t.html();
+			return;
+		}else if(item){
+			t.list_current=item;
+			t.html(item.node);
+			return;
+		}
+
+		item=t.list[name]={};
+
+		var x=$.rq({
 			onload:function(){
 				var c,f,s=this.responseText,i=s.indexOf("/script>");
 				if(i<0)return;
@@ -54,6 +68,7 @@ var app={
 				f=new Function("app0",s.substr(8,i-9));
 				c.onload=f,f.call(f,c);
 				t.html(c);
+				item.node=c;
 			}
 		});
 		x.open(data?"POST":"GET",name+"/",true);
@@ -62,6 +77,7 @@ var app={
 	html:function(s){
 		var a=document.querySelector(".app-main");
 		a.textContent="";
+		if(s)
 		switch(s.constructor){
 			case String:a.innerHTML=s;break;
 			default:a.appendChild(s);
@@ -147,7 +163,7 @@ var command={
 },proc_menu={
 },proc_menu_aside={
 	"app-load-list":function(){
-		app.newPage("app");
+		app.app_click("app");
 	}
 },proc_console={
 	"app-console-refrash":function(p){
