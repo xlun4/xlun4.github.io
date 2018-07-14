@@ -47,7 +47,7 @@ var app={
 	app_click:function(name,data){
 		var t=this,item=t.list[name];
 
-		if(t.list_current==item){
+		if(t.list_current===item){
 			t.list_current=null;
 			t.html();
 			return;
