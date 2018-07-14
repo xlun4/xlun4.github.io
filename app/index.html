@@ -3,9 +3,9 @@ var list=app0.querySelector(".list"),item=list.firstElementChild
 ,	item2=list.querySelector(".item-info")
 ,	q_item_node=".item-info,.item-title,.item-img,.item-desc"
 ,	app_built_in=[
-	{name:"Settings",description:"",url_main:"https://xlun4-app.github.io/app/setting.html",url_image:""}
-,	{name:"Input Boost",description:"",url_main:"https://xlun4-app.github.io/app/input-boost.html",url_image:""}
-,	{name:"Input Twin",description:"",url_main:"https://xlun4-app.github.io/app/input-twin.html",url_image:""}
+	{name:"Settings",description:"",url_main:"https://xlun4-app.github.io/app/setting.html",url_image:"",module:null}
+,	{name:"Input Boost",description:"",url_main:"https://xlun4-app.github.io/app/input-boost.html",url_image:"",module:null}
+,	{name:"Input Twin",description:"",url_main:"https://xlun4-app.github.io/app/input-twin.html",url_image:"",module:null}
 ]
 ,	app_exten=[];
 
@@ -14,9 +14,10 @@ item2.remove();
 
 list.onclick=function(e){
 	var t=e.target;
+console.log(e);
 	switch(t.constructor){
 	case HTMLButtonElement:
-console.log(e);
+
 		break;
 	}
 }
@@ -32,6 +33,9 @@ if(/^app-/.exec(n)){
 
 new_app(1,{name:"TEST",url_image:"https://upload.wikimedia.org/wikipedia/commons/e/ed/Raccoon_%28Procyon_lotor%29_2.jpg",description:"",v_favorate:53,v_score:80,v_issue:3});
 
+function new_app_module(){
+	return {frame:null};
+}
 function new_app(type,j,rv){
 	var a=item.cloneNode(true),b=a.querySelectorAll(".item-info,.item-title,.item-img,.item-desc"),c;
 	if(type){
@@ -46,6 +50,8 @@ function new_app(type,j,rv){
 	b[1].textContent=j.name;
 	b[2].style.backgroundImage="url('"+j.url_image+"')";
 	b[3].textContent=j.description;
+
+	j.module=new_app_module();
 
 	if(rv){
 		list.insertBefore(a,list.firstElementChild);

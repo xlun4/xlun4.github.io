@@ -47,11 +47,12 @@ var app={
 	newPage:function(name,data){
 		var t=this,x=$.rq({
 			onload:function(){
-				var c,s=this.responseText,i=s.indexOf("/script>");
+				var c,f,s=this.responseText,i=s.indexOf("/script>");
 				if(i<0)return;
 				c=document.createElement("div");
 				c.innerHTML=s.substr(i-1).replace(new RegExp("app-index","g"),c.className=t.newID());
-				(c.onload=new Function("app0",s.substr(8,i-9)))(c);
+				f=new Function("app0",s.substr(8,i-9));
+				c.onload=f,f.call(f,c);
 				t.html(c);
 			}
 		});
