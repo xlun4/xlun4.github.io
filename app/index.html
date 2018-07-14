@@ -37,12 +37,8 @@ new_app(1,{name:"TEST",url_image:"https://upload.wikimedia.org/wikipedia/commons
 function app_load(j){
 	var f=document.createElement("iframe");
 	j.module.frame=f;
-	if(j.url_main.indexOf("https://")<0){
-		f.src=j.url_main;
-	}else{
-		f.src="http://xlun4-app.github.io";
-	}
-	
+	f.src=j.url_main||"https://xlun4-app.github.io";
+	app.html(f);
 }
 function new_app_module(){
 	return {frame:null};
