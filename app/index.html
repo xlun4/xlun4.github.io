@@ -52,9 +52,9 @@ function new_app(type,j,rv){
 	if(type){
 		b[0].value=j.name;
 		c=b[1].querySelectorAll(".p-favorate .cnt,.p-score .cnt,.p-issue .cnt");
-		c[1].textContent=j.v_favorate;
-		c[2].textContent=j.v_score;
-		c[3].textContent=j.v_issue;
+		c[0].textContent=j.v_favorate;
+		c[1].textContent=j.v_score;
+		c[2].textContent=j.v_issue;
 	}else{
 		b[1].parentNode.insertBefore(item2.cloneNode(true),b[1]);
 		b[1].remove();
