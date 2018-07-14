@@ -25,15 +25,18 @@ list.onclick=function(e){
 
 for(var li=app_built_in,i=li.length-1;i>=0;i--)new_app(0,li[i],1);
 
-for(var n in localStorage)
-if(/^app-/.exec(n)){
-	var a=JSON.parse(localStorage[n]);
-	app_exten.push(a);
-	new_app(0,a);
-}
+onload();
 
 new_app(1,{name:"TEST",url_image:"https://upload.wikimedia.org/wikipedia/commons/e/ed/Raccoon_%28Procyon_lotor%29_2.jpg",description:"",v_favorate:53,v_score:80,v_issue:3});
 
+function onload(){
+	for(var n in localStorage)
+	if(/^app-/.exec(n)){
+		var a=JSON.parse(localStorage[n]);
+		app_exten.push(a);
+		new_app(0,a);
+	}
+}
 function app_load(j){
 	var f=document.createElement("iframe");
 	j.module.frame=f;
