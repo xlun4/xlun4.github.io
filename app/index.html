@@ -42,7 +42,7 @@ function app_load(j){
 	}else{
 		f.src="http://xlun4-app.github.io";
 	}
-	
+
 }
 function new_app_module(){
 	return {frame:null};
@@ -56,7 +56,7 @@ function new_app(type,j,rv){
 		c[2].textContent=j.v_score;
 		c[3].textContent=j.v_issue;
 	}else{
-		b[1].parentNode.insertBefore(item2.cloneNode(true),b[0]);
+		b[1].parentNode.insertBefore(item2.cloneNode(true),b[1]);
 		b[1].remove();
 	}
 	b[2].textContent=j.name;
