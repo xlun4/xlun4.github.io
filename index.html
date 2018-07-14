@@ -48,7 +48,7 @@ var app={
 		var t=this,item=t.list[name];
 
 		if(t.list_current===item){
-			t.list_current=null;
+			t.list_current=$dom["app-dashboard"];
 			t.html();
 			return;
 		}else if(item){
@@ -192,6 +192,7 @@ var command={
 		$.node_event(".app-aside","click",proc_menu_aside);
 		$.node_event(".app-console-float","click",proc_console);
 		$.node_event(".app-console-input","click",proc_console);
+
 
 		$dom["app-console-resize-ns"].onmousedown=function(e){
 			var h=parseInt($dom["#app-console"].style.height),y=e.clientY,cc=$dom["app-console"].className;
@@ -359,7 +360,7 @@ a:active,a:hover,button:active,button:hover{background:#8b9ee7}
 			</div>
 		</div><div class="frame">
 			<div class="app-main">
-				<div style="margin:0.5em;padding:0.5em;background:#fff">
+				<div class="app-dashboard">
 				</div>
 			</div>
 			<div class="app-console">
