@@ -52,7 +52,7 @@ var app={
 	app_click:function(name,data){
 		var t=this,item=t.list[name],v;
 
-		v=t.list_current==v?this.list.dashboard:item;
+		v=t.list_current==item?this.list.dashboard:item;
 		if(v){
 			t.list_set(0,v);
 			return;
