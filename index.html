@@ -26,17 +26,31 @@ function ws_app(){
 }
 var app={
 	ws:ws_app(),
+	ws_proc:{},
+	ws_once:function(n,p){
+		var proc=this.ws_proc;
+		proc[n]=function(j){
+			p(j);
+			delete proc[n];
+		};
+	},
 	ws_onopen:function(e){
 
 	},
 	ws_error:function(e){
 		
 	},
-	ws_onmessage:function(m){
-
+	ws_onmessage:function(e){
+		var j=JSON.parse(e.data),p=this.ws_proc[j.type];
+		if(p)p(j);
 	},
 	ws_onclose:function(e){
 
+	},
+	ws_send:function(j){
+		if(this.ws.readyState<2){
+			this.ws.send(JSON.stringify(j));
+		}
 	},
 	list:{},list_current:null,
 	list_set:function(n,v){

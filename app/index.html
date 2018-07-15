@@ -36,6 +36,10 @@ function onload(){
 		app_exten.push(a);
 		new_app(0,a);
 	}
+	app.ws_once("APP-LIST",function(j){
+console.log(j);
+	});
+	app.ws_send({type:"APP-LIST"});
 }
 function app_load(j){
 	var f=j.module.frame;
@@ -46,6 +50,9 @@ function app_load(j){
 		f.src=j.url_main||"https://xlun4-app.github.io";
 	}
 	app.html(f);
+	if(!j.url_main){
+		app.ws_send({type:"APP-DATA",name:j.name});
+	}
 }
 function new_app_module(){
 	return {frame:null};
