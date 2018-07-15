@@ -40,10 +40,9 @@ var app={
 	},
 	list:{},list_current:null,
 	list_set:function(n,v){
-		
 		this.list_current=v;
 		this.html(v.node);
-		this.list[n]=v;
+		if(n)this.list[n]=v;
 	},
 	index:0,newID:function(){
 		var i=this.index+1;
@@ -55,7 +54,7 @@ var app={
 
 		v=t.list_current==v?this.list.dashboard:item;
 		if(v){
-			t.list_set(v);
+			t.list_set(0,v);
 			return;
 		}
 
