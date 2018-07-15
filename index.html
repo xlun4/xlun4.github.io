@@ -40,7 +40,7 @@ var app={
 	},
 	list:{},list_current:null,
 	list_set:function(n,v){
-		if(this.list_current===v)v=this.list.dashboard;
+		
 		this.list_current=v;
 		this.html(v.node);
 		this.list[n]=v;
@@ -51,9 +51,13 @@ var app={
 		return "app-index-"+i;
 	},
 	app_click:function(name,data){
-		var t=this,item=t.list[name];
+		var t=this,item=t.list[name],v;
 
-		t.list_set(item);
+		v=t.list_current==v?this.list.dashboard:item;
+		if(v){
+			t.list_set(v);
+			return;
+		}
 
 		item=t.list[name]={};
 
