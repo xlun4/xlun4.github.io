@@ -40,6 +40,7 @@ function onload(){
 function app_load(j){
 	var f=document.createElement("iframe");
 	j.module.frame=f;
+	f.className="app-frame";
 	f.src=j.url_main||"https://xlun4-app.github.io";
 	app.html(f);
 }
@@ -77,6 +78,8 @@ function new_app(type,j,rv){
 </script>
 <style>
 /*.app-index .s:not(.on){display:none}*/
+.app-index{position:relative}
+.app-index .app-frame{width:100%;height:100%}
 .app-index .f{flex:auto}
 .app-index .menu-search label{flex:1;text-align:center}
 .app-index .menu-item0{display:flex}

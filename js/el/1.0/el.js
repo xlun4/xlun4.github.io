@@ -223,12 +223,12 @@ run:function(t){
 	if(f=t.querySelector(q_af))f.focus();
 },
 run_script:function(t){
-	for(var c,s=t.querySelectorAll("script"),i=s.length-1;i>=0;i--){
+	for(var c,s=document.querySelectorAll("script"),i=0,l=s.length;i<l;i++){
 		c=document.createElement("script");
 		if(s[i].src){
 			c.src=s[i].src;
 		}else{
-			c.textContent=s[i].textContent;
+			c.text=s[i].text;
 		}
 		s[i].parentNode.insertBefore(c,s[i]);
 		s[i].remove();
