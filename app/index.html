@@ -38,10 +38,13 @@ function onload(){
 	}
 }
 function app_load(j){
-	var f=document.createElement("iframe");
-	j.module.frame=f;
-	f.className="app-frame";
-	f.src=j.url_main||"https://xlun4-app.github.io";
+	var f=j.module.frame;
+	if(!f){
+		f=document.createElement("iframe");
+		j.module.frame=f;
+		f.className="app-frame";
+		f.src=j.url_main||"https://xlun4-app.github.io";
+	}
 	app.html(f);
 }
 function new_app_module(){
