@@ -42,7 +42,7 @@ var app={
 	list_set:function(n,v){
 		if(this.list_current===v)v=this.list.dashboard;
 		this.list_current=v;
-		t.html(v.node);
+		this.html(v.node);
 		this.list[n]=v;
 	},
 	index:0,newID:function(){
