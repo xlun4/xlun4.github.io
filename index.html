@@ -162,11 +162,11 @@ var command={
 	}
 },proc_menu={
 },proc_menu_aside={
-	"app-load-list":function(){
-		app.app_click("app");
+	"*":function(){
+		app.app_click(this.name);
 	}
 },proc_console={
-	"app-console-refrash":function(p){
+	"app-console-refrash":function(){
 		$dom["app-console-output"].textContent="";
 	},
 	"app-console-input-clear":function(){

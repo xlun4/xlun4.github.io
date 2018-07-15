@@ -596,20 +596,20 @@ node_on:function(s,o){
 	for(var i=a.length-1;i>=0;i--)
 	for(var b in o)a[i]["on"+b]=o[b];
 },
-node_event:function(o,n,proc,w){
+node_event:function(o,n,proc,w,d){
 	var a=this.node_from(o);
 
-	if(!w)w=[];
-	w.push(HTMLButtonElement);
-	w.push(HTMLAnchorElement);
+	w=w||[];
+	d=d||[HTMLButtonElement,HTMLAnchorElement];
 
 	for(var i=a.length-1;i>=0;i--)
 	proc.node=a,
 	a[i].addEventListener(n,function(e){
 		for(var p=e.target,i=16;p&&i>0;p=p.parentNode,i--){
-			if(w.indexOf(p.constructor)>=0){
+			if(d.indexOf(p.constructor)>=0||w.indexOf(p.constructor)>=0){
 				for(var b,cn=p.classList,j=cn.length-1;j>=0;j--)
-				if(cn[j] in proc)b=proc[cn[j]](p);
+				if(cn[j] in proc)b=proc[cn[j]].call(p,e);
+				if(proc["*"])proc["*"].call(p,e);
 				return b;
 			}
 		}
