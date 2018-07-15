@@ -39,7 +39,7 @@ function onload(){
 	app.ws_once("APP_LIST",function(j){
 console.log(j);
 	});
-	app.ws_send({type:"APP_LIST"});
+	app.ws_send("APP_LIST");
 }
 function app_load(j){
 	var f=j.module.frame;
@@ -51,7 +51,7 @@ function app_load(j){
 	}
 	app.html(f);
 	if(!j.url_main){
-		app.ws_send({type:"APP_DATA",name:j.name});
+		app.ws_send("APP_DATA "+j.name);
 	}
 }
 function new_app_module(){

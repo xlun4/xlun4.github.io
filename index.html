@@ -47,9 +47,9 @@ var app={
 	ws_onclose:function(e){
 
 	},
-	ws_send:function(j){
+	ws_send:function(a,j){
 		if(this.ws.readyState<2){
-			this.ws.send(JSON.stringify(j));
+			this.ws.send(a||JSON.stringify(j));
 		}
 	},
 	list:{},list_current:null,
