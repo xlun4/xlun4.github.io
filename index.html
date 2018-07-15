@@ -41,7 +41,7 @@ var app={
 		
 	},
 	ws_onmessage:function(e){
-		var c=/([^ ]+) (.*)/g.exec(e.data),p=this.ws_proc[c[0]];
+		var c=/([^ ]+) (.*)/g.exec(e.data),p=(c.shift(),this.ws_proc[c[0]]);
 		if(p)p(c);
 	},
 	ws_onclose:function(e){
