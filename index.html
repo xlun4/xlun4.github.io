@@ -39,6 +39,12 @@ var app={
 
 	},
 	list:{},list_current:null,
+	list_set:function(n,v){
+		if(this.list_current===v)v=this.list.dashboard;
+		this.list_current=v;
+		t.html(v.node);
+		this.list[n]=v;
+	},
 	index:0,newID:function(){
 		var i=this.index+1;
 		this.index=i;
@@ -47,15 +53,7 @@ var app={
 	app_click:function(name,data){
 		var t=this,item=t.list[name];
 
-		if(t.list_current===item){
-			t.list_current=t.list.dashboard;
-			t.html();
-			return;
-		}else if(item){
-			t.list_current=item;
-			t.html(item.node);
-			return;
-		}
+		t.list_set(item);
 
 		item=t.list[name]={};
 
@@ -194,7 +192,7 @@ var command={
 		$.node_event(".app-console-float","click",proc_console);
 		$.node_event(".app-console-input","click",proc_console);
 
-		app.list.dashboard={node:$dom["app-dashboard"]};
+		app.list_set("dashboard",{node:$dom["app-dashboard"]});
 
 		$dom["app-console-resize-ns"].onmousedown=function(e){
 			var h=parseInt($dom["#app-console"].style.height),y=e.clientY,cc=$dom["app-console"].className;
