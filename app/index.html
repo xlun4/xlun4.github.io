@@ -36,8 +36,8 @@ function onload(){
 		app_exten.push(a);
 		new_app(0,a);
 	}
-	app.ws_once("APP_LIST",function(j){
-console.log(j);
+	app.ws_once("APP_LIST",function(c){
+console.log(c);
 	});
 	app.ws_send("APP_LIST");
 }

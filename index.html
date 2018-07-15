@@ -41,8 +41,8 @@ var app={
 		
 	},
 	ws_onmessage:function(e){
-		var j=JSON.parse(e.data),p=this.ws_proc[j.type];
-		if(p)p(j);
+		var c=/([^ ]+) (.*)/g.exec(e.data),p=this.ws_proc[j.type];
+		if(p)p(c);
 	},
 	ws_onclose:function(e){
 
