@@ -36,10 +36,10 @@ function onload(){
 		app_exten.push(a);
 		new_app(0,a);
 	}
-	app.ws_once("APP-LIST",function(j){
+	app.ws_once("APP_LIST",function(j){
 console.log(j);
 	});
-	app.ws_send({type:"APP-LIST"});
+	app.ws_send({type:"APP_LIST"});
 }
 function app_load(j){
 	var f=j.module.frame;
@@ -51,7 +51,7 @@ function app_load(j){
 	}
 	app.html(f);
 	if(!j.url_main){
-		app.ws_send({type:"APP-DATA",name:j.name});
+		app.ws_send({type:"APP_DATA",name:j.name});
 	}
 }
 function new_app_module(){
