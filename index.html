@@ -48,7 +48,7 @@ var app={
 		var t=this,item=t.list[name];
 
 		if(t.list_current===item){
-			t.list_current=t.list["dashboard"];
+			t.list_current=t.list.dashboard;
 			t.html();
 			return;
 		}else if(item){
@@ -163,6 +163,7 @@ var command={
 },proc_menu={
 },proc_menu_aside={
 	"*":function(){
+		if(!this.name)return;
 		app.app_click(this.name);
 	}
 },proc_console={
@@ -193,7 +194,7 @@ var command={
 		$.node_event(".app-console-float","click",proc_console);
 		$.node_event(".app-console-input","click",proc_console);
 
-		app.list["dashboard"]={node:$dom["app-dashboard"]};
+		app.list.dashboard={node:$dom["app-dashboard"]};
 
 		$dom["app-console-resize-ns"].onmousedown=function(e){
 			var h=parseInt($dom["#app-console"].style.height),y=e.clientY,cc=$dom["app-console"].className;
