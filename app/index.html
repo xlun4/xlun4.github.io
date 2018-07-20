@@ -19,7 +19,7 @@ list.onclick=function(e){
 
 	switch(t.constructor){
 	case HTMLButtonElement:
-		app_load(app_list[t.name]);
+		app_load(app_list[t.name],"app-"+t.name);
 		break;
 	}
 }
