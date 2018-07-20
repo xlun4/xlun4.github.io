@@ -46,7 +46,7 @@ console.log(li[i]);
 	});
 	app.ws_send("APP_LIST");
 }
-function app_load(j){
+function app_load(j,name){
 	var f=j.module.frame;
 	if(app_built_in.indexOf(j)>=0){
 		if(!f){
@@ -55,7 +55,7 @@ function app_load(j){
 			f.className="app-frame";
 			var x=$.rq({
 				onload:function(){
-					app.app_load(this.responseText,j.name);
+					app.app_load(this.responseText,name);
 				}
 			});
 			x.open("GET",j.url_main,true);
