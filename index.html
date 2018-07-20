@@ -70,8 +70,7 @@ var app={
 		c.innerHTML=s.substr(i-1).replace(new RegExp("app-index","g"),c.className=this.newID());
 		f=new Function("app0",s.substr(8,i-9));
 		c.onload=f,f.call(f,c);
-		this.html(c);
-		this.list[name]={node:c};
+		this.list_set(name,this.list[name]={node:c});
 	},
 	app_click:function(name,data){
 		var t=this,item=t.list[name],v;
