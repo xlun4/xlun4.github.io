@@ -55,7 +55,7 @@ function app_load(j){
 			f.className="app-frame";
 			var x=$.rq({
 				onload:function(){
-					app.app_load(this.responseText);
+					app.app_load(this.responseText,j.name);
 				}
 			});
 			x.open("GET",j.url_main,true);
