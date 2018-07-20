@@ -84,7 +84,7 @@ var app={
 
 		var x=$.rq({
 			onload:function(){
-				t.app_load(this.responseText);
+				t.app_load(this.responseText,name);
 			}
 		});
 		x.open(data?"POST":"GET",name+"/",true);
