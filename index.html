@@ -255,7 +255,7 @@ var command={
 			keydown:function(e){
 				var d=document.createElement("div");
 				d.textContent=e.keyCode+" "+e.shiftKey;
-				app.list.dashboard.appendChild(d);
+				app.list.dashboard.node.appendChild(d);
 				if(e.keyCode==13&&e.shiftKey==false){proc_console_input(this,e);return false}},
 			keyup:function(){
 				this.style.height=(((this.value.match(/\n/g)||{length:0}).length+1)*h)+"px";
