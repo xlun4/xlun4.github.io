@@ -4,10 +4,10 @@ var list=app0.querySelector(".list"),item=list.firstElementChild
 ,	q_item_node=".item-info,.item-title,.item-img,.item-desc"
 ,	app_list={}
 ,	app_built_in=[
-	{name:"Settings",description:"",url_main:"https://xlun4-app.github.io/app/setting.html",url_image:"",module:null}
-,	{name:"Input Boost",description:"",url_main:"https://xlun4-app.github.io/app/input-boost.html",url_image:"",module:null}
-,	{name:"Input Twin",description:"",url_main:"https://xlun4-app.github.io/app/input-twin.html",url_image:"",module:null}
-,	{name:"Install",description:"",url_main:"https://xlun4-app.github.io/app/install.html",url_image:"",module:null}
+	{name:"Settings",description:"",url_main:"/app/setting.html",url_image:"",module:null}
+,	{name:"Input Boost",description:"",url_main:"/app/input-boost.html",url_image:"",module:null}
+,	{name:"Input Twin",description:"",url_main:"/app/input-twin.html",url_image:"",module:null}
+,	{name:"Install",description:"",url_main:"/app/install.html",url_image:"",module:null}
 ]
 ,	app_exten=[];
 
@@ -48,15 +48,31 @@ console.log(li[i]);
 }
 function app_load(j){
 	var f=j.module.frame;
-	if(!f){
-		f=document.createElement("iframe");
-		j.module.frame=f;
-		f.className="app-frame";
-		f.src=j.url_main||"https://xlun4-app.github.io";
-	}
-	app.html(f);
-	if(!j.url_main){
-		app.ws_send("APP_DATA "+j.name);
+	if(app_built_in.indexOf(j)>=0){
+		if(!f){
+			f=document.createElement("div");
+			j.module.frame=f;
+			f.className="app-frame";
+			var x=$.rq({
+				onload:function(){
+					app.app_load(this.responseText);
+				}
+			});
+			x.open("GET",j.url_main,true);
+			x.send();
+		}
+		app.html(f);
+	}else{
+		if(!f){
+			f=document.createElement("iframe");
+			j.module.frame=f;
+			f.className="app-frame";
+			f.src=j.url_main||"https://xlun4-app.github.io";
+		}
+		app.html(f);
+		if(!j.url_main){
+			app.ws_send("APP_LOAD "+j.name);
+		}
 	}
 }
 function new_app_module(){
