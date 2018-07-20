@@ -67,10 +67,10 @@ var app={
 		var c,f,i=s.indexOf("/script>");
 		if(i<0)return;
 		c=document.createElement("div");
-		c.innerHTML=s.substr(i-1).replace(new RegExp("app-index","g"),c.className=t.newID());
+		c.innerHTML=s.substr(i-1).replace(new RegExp("app-index","g"),c.className=this.newID());
 		f=new Function("app0",s.substr(8,i-9));
 		c.onload=f,f.call(f,c);
-		t.html(c);
+		this.html(c);
 		this.list[name]={node:c};
 	},
 	app_click:function(name,data){
