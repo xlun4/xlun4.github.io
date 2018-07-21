@@ -67,13 +67,14 @@ debugger;
 			f.src=j.url_main||"https://xlun4-app.github.io";
 			if(!j.url_main){
 				app.ws_once("APP_"+j.name,function(c){
-
+					app.app_load(c[1],j.name);
 				});
 				app.ws_send("APP_LOAD "+j.name);
 			}
 		}
+	}else{
+		app.list_set(0,j);
 	}
-	app.list_set(0,j);
 }
 function new_app(type,j,rv){
 	var a=item.cloneNode(true),b=a.querySelectorAll(".item-info,.item-title,.item-img,.item-desc"),c;
