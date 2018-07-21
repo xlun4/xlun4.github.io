@@ -55,7 +55,7 @@ debugger;
 			f.className="app-frame";
 			var x=$.rq({
 				onload:function(){
-					app.app_start(this.responseText,name);
+					app.app_load(this.responseText,name);
 				}
 			});
 			x.open("GET",j.url_main,true);
