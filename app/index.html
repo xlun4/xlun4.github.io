@@ -47,6 +47,7 @@ console.log(li[i]);
 	app.ws_send("APP_LIST");
 }
 function app_load(j,name){
+debugger;
 	if(!j.module.node){
 		if(app_built_in.indexOf(j)>=0){
 			f=document.createElement("div");
@@ -66,7 +67,7 @@ function app_load(j,name){
 			f.src=j.url_main||"https://xlun4-app.github.io";
 			if(!j.url_main){
 				app.ws_once("APP_"+j.name,function(c){
-					
+
 				});
 				app.ws_send("APP_LOAD "+j.name);
 			}
