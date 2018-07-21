@@ -49,9 +49,6 @@ console.log(li[i]);
 function app_load(j,name){
 	if(!j.node){
 		if(app_built_in.indexOf(j)>=0){
-			f=document.createElement("div");
-			j.node=f;
-			f.className="app-frame";
 			var x=$.rq({
 				onload:function(){
 					app.app_load(this.responseText,name);

@@ -72,23 +72,23 @@ var app={
 		}
 	},
 	list:{},
-	list_set:function(n,v){
-		if(this.list.current==v)v=this.list.dashboard;
-		this.list.current=v;
+	list_set:function(n,j){
+		if(this.list.current==j)v=this.list.dashboard;
+		this.list.current=j;
 		this.html(v.node);
-		if(n)this.list[n]=v;
+		if(n)this.list[n]=j;
 	},
 	index:0,newID:function(){
 		return "app-index-"+(++this.index);
 	},
-	app_load:function(s,name){
+	app_load:function(s,name,j0){
 		var c,f,i=s.indexOf("/script>"),j;
 		if(i<0)return;
-		j={
+		j=Object.assign({
 			name:name,
 			node:c=document.createElement("div"),
 			load:f=new Function("app0",s.substr(8,i-9))
-		};
+		},j0);
 		c.innerHTML=s.substr(i-1).replace(new RegExp("app-index","g"),c.className=this.newID());
 		f.call(f,c);
 		this.list_set(name,j);
