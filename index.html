@@ -63,7 +63,7 @@ var app={
 		this.index=i;
 		return "app-index-"+i;
 	},
-	app_load:function(s,name){
+	app_start:function(s,name){
 		var c,f,i=s.indexOf("/script>");
 		if(i<0)return;
 		c=document.createElement("div");
@@ -72,7 +72,7 @@ var app={
 		c.onload=f,f.call(f,c);
 		this.list_set(name,this.list[name]={node:c});
 	},
-	app_click:function(name,data){
+	app_load:function(name,data){
 		var t=this,item=t.list[name],v;
 
 		v=t.list_current==item?this.list.dashboard:item;
@@ -83,7 +83,7 @@ var app={
 
 		var x=$.rq({
 			onload:function(){
-				t.app_load(this.responseText,name);
+				t.app_start(this.responseText,name);
 			}
 		});
 		x.open(data?"POST":"GET",name+"/",true);
@@ -179,7 +179,7 @@ var command={
 },proc_menu_aside={
 	"*":function(){
 		if(!this.name)return;
-		app.app_click(this.name);
+		app.app_load(this.name);
 	}
 },proc_console={
 	"app-console-refrash":function(){
