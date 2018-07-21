@@ -75,7 +75,7 @@ var app={
 	list_set:function(n,j){
 		if(this.list.current==j)v=this.list.dashboard;
 		this.list.current=j;
-		this.html(v.node);
+		this.html(j.node);
 		if(n)this.list[n]=j;
 	},
 	index:0,newID:function(){
