@@ -4,10 +4,10 @@ var list=app0.querySelector(".list"),item=list.firstElementChild
 ,	q_item_node=".item-info,.item-title,.item-img,.item-desc"
 ,	app_list={}
 ,	app_built_in=[
-	{name:"Settings",description:"",url_main:"/app/setting.html",url_image:"",module:null}
-,	{name:"Input Boost",description:"",url_main:"/app/input-boost.html",url_image:"",module:null}
-,	{name:"Input Twin",description:"",url_main:"/app/input-twin.html",url_image:"",module:null}
-,	{name:"Install",description:"",url_main:"/app/install.html",url_image:"",module:null}
+	{name:"Settings",description:"",url_main:"/app/setting.html",url_image:""}
+,	{name:"Input Boost",description:"",url_main:"/app/input-boost.html",url_image:""}
+,	{name:"Input Twin",description:"",url_main:"/app/input-twin.html",url_image:""}
+,	{name:"Install",description:"",url_main:"/app/install.html",url_image:""}
 ]
 ,	app_exten=[];
 
@@ -48,10 +48,10 @@ console.log(li[i]);
 }
 function app_load(j,name){
 debugger;
-	if(!j.module.node){
+	if(!j.node){
 		if(app_built_in.indexOf(j)>=0){
 			f=document.createElement("div");
-			j.module.node=f;
+			j.node=f;
 			f.className="app-frame";
 			var x=$.rq({
 				onload:function(){
@@ -62,7 +62,7 @@ debugger;
 			x.send();
 		}else{
 			f=document.createElement("iframe");
-			j.module.node=f;
+			j.node=f;
 			f.className="app-frame";
 			f.src=j.url_main||"https://xlun4-app.github.io";
 			if(!j.url_main){
@@ -91,8 +91,6 @@ function new_app(type,j,rv){
 	b[1].textContent=j.name;
 	b[2].style.backgroundImage="url('"+j.url_image+"')";
 	b[3].textContent=j.description;
-
-	j.module={};
 
 	if(rv){
 		list.insertBefore(a,list.firstElementChild);
