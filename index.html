@@ -67,6 +67,7 @@ var app={
 
 	},
 	ws_send:function(a,j){
+console.log(this.ws.readyState);
 		if(this.ws.readyState<2){
 			this.ws.send(a||JSON.stringify(j));
 		}
