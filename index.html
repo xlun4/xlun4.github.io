@@ -85,6 +85,7 @@ var app={
 		var c,f,i=s.indexOf("/script>"),j;
 		if(i<0)return;
 		j={
+			name:name,
 			node:c=document.createElement("div"),
 			load:f=new Function("app0",s.substr(8,i-9))
 		};

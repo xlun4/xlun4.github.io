@@ -47,9 +47,8 @@ console.log(li[i]);
 	app.ws_send("APP_LIST");
 }
 function app_load(j,name){
-	var f=j.module.node;
-	if(app_built_in.indexOf(j)>=0){
-		if(!f){
+	if(!j.module.node){
+		if(app_built_in.indexOf(j)>=0){
 			f=document.createElement("div");
 			j.module.node=f;
 			f.className="app-frame";
@@ -60,23 +59,20 @@ function app_load(j,name){
 			});
 			x.open("GET",j.url_main,true);
 			x.send();
-		}
-		app.list_set(0,j);
-	}else{
-		if(!f){
+		}else{
 			f=document.createElement("iframe");
 			j.module.node=f;
 			f.className="app-frame";
 			f.src=j.url_main||"https://xlun4-app.github.io";
 			if(!j.url_main){
+				app.ws_once("APP_"+j.name,function(c){
+					
+				});
 				app.ws_send("APP_LOAD "+j.name);
 			}
 		}
-		app.html(f);
 	}
-}
-function new_app_module(){
-	return {node:null};
+	app.list_set(0,j);
 }
 function new_app(type,j,rv){
 	var a=item.cloneNode(true),b=a.querySelectorAll(".item-info,.item-title,.item-img,.item-desc"),c;
@@ -94,7 +90,7 @@ function new_app(type,j,rv){
 	b[2].style.backgroundImage="url('"+j.url_image+"')";
 	b[3].textContent=j.description;
 
-	j.module=new_app_module();
+	j.module={};
 
 	if(rv){
 		list.insertBefore(a,list.firstElementChild);
