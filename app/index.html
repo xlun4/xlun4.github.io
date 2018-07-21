@@ -61,7 +61,7 @@ function app_load(j,name){
 			x.open("GET",j.url_main,true);
 			x.send();
 		}
-		t.list_set(0,j);
+		app.list_set(0,j);
 	}else{
 		if(!f){
 			f=document.createElement("iframe");
