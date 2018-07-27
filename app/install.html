@@ -1,7 +1,10 @@
 <script>
 app0.querySelector("input").onchange=function(e){
-	this.files[0]
-	app.ws.send();
+	var f=this.files[0],r=new FileReader();
+	r.onload=function(){
+		app.ws_send("APP_INSTALL "+f.name+" "+r.result);
+	};
+	r.readAsText(f);
 };
 </script>
 <style>
