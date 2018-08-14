@@ -2,7 +2,8 @@
 app0.querySelector("input").onchange=function(e){
 	var f=this.files[0],r=new FileReader();
 	r.onload=function(){
-		app.ws_send("APP_INSTALL "+f.name+" "+r.result);
+		console.log(f,r);
+		//app.ws_send("APP_INSTALL "+f.name+" "+r.result);
 	};
 	r.readAsText(f);
 };

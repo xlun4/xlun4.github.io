@@ -1,9 +1,14 @@
 <script>
-//app0
+var btn_start=app0.querySelector(".start");
+
+btn_start.onclick=function(){
+	var a=[""];
+	app.ws_send("NEW-INTEROPE "+a.join("\n"));
+};
 </script>
 <style>
 .app-index{}
 </style>
 <div>
-test
+<button class="start">start</button>
 </div>
