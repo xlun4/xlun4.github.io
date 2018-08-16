@@ -1,11 +1,24 @@
 <script>
+var f_type={
+	"html":function(r,f){
+		r.onload=function(){
+			app.ws_send("APP_INSTALL "+JSON.stringify({type:"page",name:f.name})+"\n"+r.result);
+		};
+		r.readAsText(f);
+	},
+	"zip":function(r,f){
+		r.onload=function(){
+			//app.ws_send("APP_INSTALL "+f.name+" "+r.result);
+		};
+		r.readAsArrayBuffer(f);
+	}
+};
 app0.querySelector("input").onchange=function(e){
 	var f=this.files[0],r=new FileReader();
 	r.onload=function(){
 		console.log(f,r);
-		//app.ws_send("APP_INSTALL "+f.name+" "+r.result);
+		f_type[f.name.split(".").pop()](r,f);
 	};
-	r.readAsText(f);
 };
 </script>
 <style>
