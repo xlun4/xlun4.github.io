@@ -418,7 +418,7 @@ function start(){
 		try{
 		var notification = new Notification(Notification.permission);
 		}catch(e){
-			alert("error");
+			alert("error "+e.message);
 		}
 	}
 }
