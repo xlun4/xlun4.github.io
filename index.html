@@ -405,6 +405,9 @@ function start(){
 	}
 	function test(){
 		navigator.serviceWorker.ready.then(function(registration) {
+			registration.showNotification('Notification with ServiceWorker');
+		});
+		navigator.serviceWorker.ready.then(function(registration) {
 			registration.showNotification('Vibration Sample', {
 				body: 'Moon',
 				icon: 'icon-192.png',
