@@ -406,7 +406,7 @@ function test(){
 	var ii,cnt=4;
 	ii=setInterval(function(){
 		if(cnt--){
-		var notification = new Notification("Hi there!");
+		var notification = new Notification("Hi there! "+cnt);
 		}else{
 		clearInterval(ii);
 		}
