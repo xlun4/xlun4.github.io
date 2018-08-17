@@ -391,7 +391,7 @@ iframe{border:0}
 <script>
 document.querySelector('.test').onclick=start;
 
-navigator.serviceWorker.register('svc/index.js').then(function(registration){
+navigator.serviceWorker.register('index.js').then(function(registration){
 	registration.showNotification('Notification with ServiceWorker');
 });
 
