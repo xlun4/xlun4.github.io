@@ -394,9 +394,6 @@ document.querySelector('.test').onclick=start;
 navigator.serviceWorker.register('svc/index.js');
 
 function start(){
-	var notification = new Notification(Notification.permission);
-	alert(Notification.permission);
-	
 	switch(Notification.permission){
 		case "granted":test();break;
 		case "denied":break;
@@ -406,6 +403,8 @@ function start(){
 		});
 	}
 	function test(){
+		var notification = new Notification(Notification.permission);
+		alert(Notification.permission);
 		navigator.serviceWorker.ready.then(function(registration) {
 			registration.showNotification('Vibration Sample', {
 				body: 'Moon',
