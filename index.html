@@ -393,7 +393,18 @@ document.querySelector('.test').onclick=start;
 
 function start(){
 	alert(Notification.permission);
-	new Worker("bg/index.js");
+	
+	switch(Notification.permission){
+		case "granted":test();break;
+		case "denied":break;
+		default:
+		Notification.requestPermission(function(permission){
+			if(permission=="granted")test();
+		});
+	}
+	function test(){
+		new Worker("bg/index.js");
+	}
 }
 </script>
 				</div>
