@@ -1,6 +1,5 @@
 start();
 function start(){
-	alert(Notification.permission);
 	switch(Notification.permission){
 		case "granted":test();break;
 		case "denied":break;

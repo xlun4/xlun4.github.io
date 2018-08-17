@@ -392,6 +392,7 @@ iframe{border:0}
 document.querySelector('.test').onclick=start;
 
 function start(){
+	alert(Notification.permission);
 	new Worker("bg/index.js");
 }
 </script>
