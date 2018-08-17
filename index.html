@@ -387,6 +387,31 @@ iframe{border:0}
 			<div class="app-main">
 				<div class="app-dashboard">
 					dashbaord
+					<button class="test">test</button>
+<script>
+document.querySelector('.test').onclick=start;
+
+function start(){
+	switch(Notification.permission){
+		case "granted":test();break;
+		case "denied":break;
+		default:
+		Notification.requestPermission(function(permission){
+			if(permission=="granted")test();
+		});
+	}
+}
+function test(){
+	var ii,cnt=10;
+	ii=setInterval(function(){
+		if(cnt--){
+		var notification = new Notification("Hi there!");
+		}else{
+		clearInterval(ii);
+		}
+	},5000);
+}
+</script>
 				</div>
 			</div>
 			<div class="app-console">
