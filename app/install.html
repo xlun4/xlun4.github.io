@@ -14,11 +14,9 @@ var f_type={
 	}
 };
 app0.querySelector("input").onchange=function(e){
-	var f=this.files[0],r=new FileReader();
-	r.onload=function(){
-		console.log(f,r);
-		f_type[f.name.split(".").pop()](r,f);
-	};
+	var f=this.files[0];
+	console.log(f);
+	f_type[f.name.split(".").pop()](new FileReader(),f);
 };
 </script>
 <style>
