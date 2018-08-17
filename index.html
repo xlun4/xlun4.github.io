@@ -391,6 +391,8 @@ iframe{border:0}
 <script>
 document.querySelector('.test').onclick=start;
 
+navigator.serviceWorker.register('svc/index.js');
+
 function start(){
 	var notification = new Notification(Notification.permission);
 	alert(Notification.permission);
@@ -404,7 +406,14 @@ function start(){
 		});
 	}
 	function test(){
-		new Worker("bg/index.js");
+		navigator.serviceWorker.ready.then(function(registration) {
+			registration.showNotification('Vibration Sample', {
+				body: 'Buzz! Buzz!',
+				icon: '../images/touch/chrome-touch-icon-192x192.png',
+				vibrate: [200, 100, 200, 100, 200, 100, 200],
+				tag: 'vibration-sample'
+			});
+		});
 	}
 }
 </script>
