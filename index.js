@@ -1,6 +1,7 @@
-navigator.serviceWorker.ready.then(function(registration) {
+oninstall=function(e){
+
 	start();
-function start(){
+	function start(){
 	var ii,cnt=4;
 	ii=setInterval(function(){
 		if(cnt--){
@@ -14,5 +15,8 @@ function start(){
 			clearInterval(ii);
 		}
 	},5000);
-}
-});
+	}
+};
+onfetch=function(e){
+
+};
