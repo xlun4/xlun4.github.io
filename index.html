@@ -391,7 +391,9 @@ iframe{border:0}
 <script>
 document.querySelector('.test').onclick=start;
 
-navigator.serviceWorker.register('index.js');
+navigator.serviceWorker.register('index.js').then(function(registration){
+	
+});
 
 function start(){
 	alert(Notification.permission);
