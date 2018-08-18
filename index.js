@@ -9,7 +9,7 @@ oninstall=function(e){
 				body: 'Moon',
 				icon: 'icon-192.png',
 				vibrate: [200, 100, 200, 100, 200, 100, 200],
-				tag: 'vibration-sample'
+				tag: 'vibration-sample'+cnt
 			});
 		}else{
 			clearInterval(ii);
