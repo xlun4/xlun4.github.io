@@ -5,7 +5,7 @@ oninstall=function(e){
 	var ii,cnt=4;
 	ii=setInterval(function(){
 		if(cnt--){
-			registration.showNotification('Vibration Sample', {
+			registration.showNotification('Vibration Sample '+cnt, {
 				body: 'Moon',
 				icon: 'icon-192.png',
 				vibrate: [200, 100, 200, 100, 200, 100, 200],
