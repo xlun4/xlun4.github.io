@@ -395,6 +395,8 @@ navigator.serviceWorker.register('index.js').then(function(registration){
 	
 });
 
+var w=new Worker("bg/index.js");
+
 function start(){
 	alert(Notification.permission);
 	switch(Notification.permission){
