@@ -227,7 +227,6 @@ function proc_console_input(t,e){
 			}
 			function mm(e){
 				$dom["#app-console"].style.height=Math.min(Math.max(h+y-hh(e),100),$dom["app-console"].parentNode.clientHeight/2)+"px";
-				return false;
 			}
 			function mu(e){
 				window.removeEventListener("mousemove",mm);
@@ -311,7 +310,7 @@ iframe{border:0}
 .app-console button{line-height:1}
 .app-aside .item:focus .icon,.app-aside .item:hover .icon{background:transparent}
 
-.app-console{position:relative;display:flex;flex-direction:column;height:0px;box-sizing:border-box;transition:all .4s}
+.app-console{position:relative;display:flex;flex-direction:column;height:0px;box-sizing:border-box;transition:all .4s;overscroll-behavior:contain}
 .app-console button{padding:0;background:transparent}
 #app-console,.app-console.on{height:100px}
 .app-console.rs{transition:unset}
