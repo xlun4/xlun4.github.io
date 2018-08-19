@@ -12,7 +12,6 @@ onactivate=function(e){
 	e.waitUntil(clients.claim());
 };
 onfetch=function(e){
-	console.log(e.request);
 	var path=e.request.url.replace(/^[^\/]+\/\/[^\/]+/,"");
 
 	for(var i=url_list.length-1;i>=0;i--){
