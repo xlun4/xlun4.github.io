@@ -1,8 +1,7 @@
 var res_empty=new Response("")
 ,	url_core={
 	"/notify":function(){
-		var j=this.json();
-		registration.showNotification(j[0],j[1]);
+		this.json().then(function(j){registration.showNotification(j[0],j[1]);});
 		return res_empty;
 	}
 },	url_list=[url_core];
