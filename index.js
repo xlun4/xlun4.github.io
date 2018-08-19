@@ -1,7 +1,7 @@
 oninstall=function(e){
 
 };
-activate=function(e){
+onactivate=function(e){
 	e.waitUntil(clients.claim());
 };
 onfetch=function(e){
