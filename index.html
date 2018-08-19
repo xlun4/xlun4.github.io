@@ -398,25 +398,12 @@ navigator.serviceWorker.register('index.js').then(function(r){
 var w=new Worker("bg/index.js");
 
 function start(){
-	alert(Notification.permission);
-	switch(Notification.permission){
-		case "granted":test();break;
-		case "denied":break;
-		default:
-		Notification.requestPermission(function(permission){
-			if(permission=="granted")test();
-		});
-	}
-	function test(){
-		navigator.serviceWorker.ready.then(function(registration) {
-			registration.showNotification('Sample', {
-				body: 'Moon',
-				icon: 'icon-192.png',
-				vibrate: [200, 100, 200, 100, 200, 100, 200],
-				tag: 'vibration-sample'
-			});
-		});
-	}
+	setTimeout(function(){
+var x=new XMLHttpRequest();
+x.open("POST","/notify",true);
+x.setRequestHeader("Content-Type","application/json");
+x.send('["Vibration Sample",{"body":"Moon","icon":"icon-192.png","vibrate":[200,100,200,100,200,100,200],"tag":"vibration-sample"}]');
+	},5000);
 }
 </script>
 				</div>
