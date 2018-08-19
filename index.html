@@ -215,11 +215,18 @@ function proc_console_input(t,e){
 
 		$dom["app-console-resize-ns"].ontouchstart=
 		$dom["app-console-resize-ns"].onmousedown=function(e){
-			var h=parseInt($dom["#app-console"].style.height),y=e.touches[0].clientY||e.clientY,cc=$dom["app-console"].className;
+			var h=parseInt($dom["#app-console"].style.height),y=hh(e),cc=$dom["app-console"].className;
 
 			$dom["app-console"].className+=" rs";
+
+			function hh(e){
+				switch(e.constructor){
+					case MouseEvent:return e.clientY;
+					case TouchEvent:return e.touches[0].clientY;
+				}
+			}
 			function mm(e){
-				$dom["#app-console"].style.height=Math.min(Math.max(h+y-(e.touches[0].clientY||e.clientY),100),$dom["app-console"].parentNode.clientHeight/2)+"px";
+				$dom["#app-console"].style.height=Math.min(Math.max(h+y-hh(e),100),$dom["app-console"].parentNode.clientHeight/2)+"px";
 			}
 			function mu(e){
 				window.removeEventListener("mousemove",mm);
