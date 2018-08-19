@@ -1,4 +1,4 @@
-var res_empty=new Response("")
+var res_empty=new Response("",{status:200})
 ,	url_core={
 	"/notify":function(){
 		this.json().then(function(j){registration.showNotification(j[0],j[1]);});
