@@ -227,6 +227,7 @@ function proc_console_input(t,e){
 			}
 			function mm(e){
 				$dom["#app-console"].style.height=Math.min(Math.max(h+y-hh(e),100),$dom["app-console"].parentNode.clientHeight/2)+"px";
+				return false;
 			}
 			function mu(e){
 				window.removeEventListener("mousemove",mm);
