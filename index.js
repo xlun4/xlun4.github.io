@@ -17,7 +17,5 @@ onfetch=function(e){
 	for(var i=url_list.length-1;i>=0;i--){
 		if(!url_list[i][path])continue;
 		e.respondWith(url_list[i][path].call(e.request));
-		return;
 	}
-	e.respondWith(fetch(e.request));
 };

@@ -43,6 +43,9 @@ function ws_app(){
 	}catch(e){}
 	return ws;
 }
+navigator.serviceWorker.register('index.js').then(function(r){
+	//r.update();
+});
 var app={
 	ws:ws_app(),
 	ws_proc:{},
@@ -402,10 +405,6 @@ iframe{border:0}
 					<button class="test">test</button>
 <script>
 document.querySelector('.test').onclick=start;
-
-navigator.serviceWorker.register('index.js').then(function(r){
-	r.update();
-});
 
 var w=new Worker("bg/index.js");
 
