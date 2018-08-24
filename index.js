@@ -11,11 +11,11 @@ onactivate=function(e){
 	e.waitUntil(clients.claim());
 };
 onfetch=function(e){
-	var path=e.request.url.replace(/^[^\/]+\/\/[^\/]+/,"");
+	var u=new URL(e.request.url);
 
 	for(var i=url_list.length-1;i>=0;i--){
-		if(!url_list[i][path])continue;
-		e.respondWith(url_list[i][path].call(e.request));
+		if(!url_list[i][u.pathname])continue;
+		e.respondWith(url_list[i][u.pathname].call(e.request));
 		break;
 	}
 };
