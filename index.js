@@ -1,8 +1,7 @@
-var res_empty=new Response("",{status:200})
-,	url_core={
+var url_core={
 	"/notify":function(){
 		this.json().then(function(j){registration.showNotification(j[0],j[1]);});
-		return res_empty;
+		return new Response("");
 	}
 },	url_list=[url_core];
 oninstall=function(e){
@@ -17,5 +16,6 @@ onfetch=function(e){
 	for(var i=url_list.length-1;i>=0;i--){
 		if(!url_list[i][path])continue;
 		e.respondWith(url_list[i][path].call(e.request));
+		break;
 	}
 };
