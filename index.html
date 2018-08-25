@@ -86,16 +86,30 @@ var app={
 		return "app-index-"+(++this.index);
 	},
 	app_load:function(s,name,j0){
-		var c,f,i=s.indexOf("/script>"),j;
-		if(i<0)return;
-		j=Object.assign({
-			name:name,
-			node:c=document.createElement("div"),
-			load:f=new Function("app0",s.substr(8,i-9))
-		},j0);
-		c.innerHTML=s.substr(i-1).replace(new RegExp("app-index","g"),c.className=this.newID());
-		f.call(f,c);
+		var j=new_node();
 		this.list_set(name,j);
+
+		function new_node(){
+			var c,f;
+			if(s.tagName){
+				c=s;
+			}else{
+				var i=s.indexOf("/script>");
+				f=new Function("app0",s.substr(8,i-9));
+				c=document.createElement("div");
+				c.innerHTML=s.substr(i-1).replace(new RegExp("app-index","g"));
+				f.call(f,c);
+			}
+			c.className=this.newID();
+
+			return Object.assign({
+				name:name,
+				node:c,
+				load:f
+			},j0);
+		}
+
+
 	},
 	app_request:function(name,data){
 		var t=this,v,x;
