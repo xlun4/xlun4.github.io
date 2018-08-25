@@ -63,10 +63,10 @@ function app_load(j,name){
 			f.src=j.url_main||"https://xlun4-app.github.io";
 			if(!j.url_main){
 				f.onload=function(){
-					app.ws_once("APP_"+j.name,function(c){
+					app.ws_once("APP_"+j.name+".html",function(c){
 						app_body_load(f.contentWindow.document.body,c[1]);
 					});
-					app.ws_send("APP_LOAD "+j.name);
+					app.ws_send("APP_LOAD "+j.name+".html");
 				};
 			}
 		}
