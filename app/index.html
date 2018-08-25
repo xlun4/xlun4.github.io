@@ -61,6 +61,7 @@ function app_load(j,name){
 			j.node=f;
 			f.className="app-frame";
 			f.src=j.url_main||"https://xlun4-app.github.io";
+debugger;
 			if(!j.url_main){
 				f.onload=function(){
 					app.ws_once("APP_"+j.name+".html",function(c){
