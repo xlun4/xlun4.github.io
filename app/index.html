@@ -38,7 +38,6 @@ function onload(){
 		new_app(0,a);
 	}
 	app.ws_once("APP_LIST",function(c){
-console.log(c);
 		var li=JSON.parse("["+c[1].replace(/\n/g,",")+"]");
 		for(var i=0,l=li.length;i<l;i++){
 
