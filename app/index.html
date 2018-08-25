@@ -65,7 +65,7 @@ function app_load(j,name){
 			if(!j.url_main){
 				f.onload=function(){
 					app.ws_once("APP_"+j.name+".html",function(c){
-						f.contentWindow.postMessage({type:"html",src:c[1]});
+						f.contentWindow.postMessage({type:"html",src:c[1]},"*");
 					});
 					app.ws_send("APP_LOAD "+j.name+".html");
 				};
