@@ -90,17 +90,17 @@ var app={
 		this.list_set(name,j);
 
 		function new_node(){
-			var c,f;
+			var c,f,id=t.newID();
 			if(s.tagName){
 				c=s;
 			}else{
 				var i=s.indexOf("/script>");
 				f=new Function("app0",s.substr(8,i-9));
 				c=document.createElement("div");
-				c.innerHTML=s.substr(i-1).replace(new RegExp("app-index","g"));
+				c.innerHTML=s.substr(i-1).replace(new RegExp("app-index","g"),id);
 				f.call(f,c);
 			}
-			c.className=t.newID();
+			c.className=id;
 
 			return Object.assign({
 				name:name,
