@@ -101,7 +101,7 @@ function new_app(type,j,rv){
 	}
 	b[1].parentNode.name=
 	b[1].textContent=j.name;
-	b[2].style.backgroundImage="url('"+j.url_image+"')";
+	if(j.url_image)b[2].style.backgroundImage="url('"+j.url_image+"')";
 	b[3].textContent=j.description;
 
 	if(rv){
