@@ -86,7 +86,7 @@ var app={
 		return "app-index-"+(++this.index);
 	},
 	app_load:function(s,name,j0){
-		var j=new_node();
+		var t=this,j=new_node();
 		this.list_set(name,j);
 
 		function new_node(){
@@ -100,7 +100,7 @@ var app={
 				c.innerHTML=s.substr(i-1).replace(new RegExp("app-index","g"));
 				f.call(f,c);
 			}
-			c.className=this.newID();
+			c.className=t.newID();
 
 			return Object.assign({
 				name:name,
