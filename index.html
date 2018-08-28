@@ -55,9 +55,6 @@ function HideAddrBar(a){
 		html.style.height=window.innerHeight+"px";
 	}
 }
-onresize=function(e){
-	document.querySelector('.frame').innerText=JSON.stringify([window.innerWidth,window.innerHeight,e]);
-};
 function ws_app(){
 	var ws;
 	try{
