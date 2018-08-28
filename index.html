@@ -37,6 +37,27 @@ function force(a,b){
 function EndDOM(a){
 	document.addEventListener("DOMContentLoaded",a);
 }
+function HideAddrBar(a){
+	var html=document.querySelector("html"),bar=document.createElement("div");
+	bar.style.cssText="position:absolute;pointer-event:none;top:0;width:1px;height:"+(window.innerHeight+32)+"px";
+	bar.className="__bar__";
+	a=a?"addEventListener":"removeEventListener";
+	window[a]("touchstart",touchstart);
+	window[a]("touchend",touchend);
+	window[a]("resize",resize);
+	function touchstart(){
+		document.body.appendChild(bar);
+	}
+	function touchend(){
+		bar.remove();
+	}
+	function resize(){
+		html.style.height=window.innerHeight+"px";
+	}
+}
+onresize=function(e){
+	document.querySelector('.frame').innerText=JSON.stringify([window.innerWidth,window.innerHeight,e]);
+};
 function ws_app(){
 	var ws;
 	try{
@@ -49,7 +70,11 @@ navigator.serviceWorker.register('index.js').then(function(r){
 });
 var app={
 	ws:ws_app(),
-	ws_proc:{},
+	ws_proc:{
+		"APP":function(j){
+
+		}
+	},
 	ws_once:function(n,p){
 		var proc=this.ws_proc;
 		proc[n]=function(j){
@@ -137,6 +162,15 @@ var app={
 		}
 	}
 },$dom={},api={};
+
+onmessage=function(e){
+	switch(e.data.type){
+	case "WS_SEND":
+		app.ws_send(0,e.data.msg);
+		break;
+	}
+};
+
 function proc_console_input(t,e){
 	var t=[{a:document.createElement(t.value?"div":"br"),b:document.createElement("div"),c:[],value:t.value.replace(/[\n\r]/g,""),t},t.value=""][0],opener,parent,window;
 
@@ -222,6 +256,7 @@ function proc_console_input(t,e){
 	document.cookie="utc_offset="+(-new Date().getTimezoneOffset());
 
 
+	HideAddrBar(1);
 	EndDOM(function(){
 		$.var_update($dom,null,/(^#app-)|(^app-)/);
 		$.node_event(".app-head","click",proc_menu);
