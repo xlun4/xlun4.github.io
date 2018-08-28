@@ -38,7 +38,7 @@ function EndDOM(a){
 	document.addEventListener("DOMContentLoaded",a);
 }
 function HideAddrBar(a){
-	var html=document.querySelector("html"),bar=document.createElement("div");
+	var html=document.documentElement,bar=document.createElement("div");
 	bar.style.cssText="position:absolute;pointer-event:none;top:0;width:1px;height:"+(window.innerHeight+32)+"px";
 	bar.className="__bar__";
 	a=a?"addEventListener":"removeEventListener";
