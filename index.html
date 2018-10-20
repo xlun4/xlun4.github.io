@@ -146,7 +146,7 @@ var app={
 				t.app_load(this.responseText,name);
 			}
 		});
-		x.open(data?"POST":"GET",name,true);
+		x.open(data?"POST":"GET",name+"/",true);
 		x.send(data);
 	},
 	html:function(s){
@@ -230,7 +230,7 @@ function proc_console_input(t,e){
 	},proc_menu_aside={
 		"*":function(){
 			if(!this.name)return;
-			app.app_request(this.name+"/");
+			app.app_request(this.name);
 		}
 	},proc_console={
 		"app-console-refrash":function(){
