@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	<moduleprefs title="위젯종료 위젯" width="160" height="130"/> 
+	<content type="html">
+<![CDATA[ 
+<a href="http://blog.daum.net/widgetbank/6975243" target="_blank">
+<img alt="위젯뱅크 서비스 종료" border="0" height="70" src="http://pimg.daum-img.net/widgetbank/img_close.png" title="위젯로딩 실패" width="166" /></a>     
+]]>
+	</content> 
+</module>
